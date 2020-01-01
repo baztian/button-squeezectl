@@ -1,9 +1,13 @@
 #!/usr/bin/env python3
 
 import signal
+from sys import stderr
 
 from gpiozero import Button
 from lms import Server
+
+INITIAL_SEEK_OFFSET = 15
+MAX_SEEK_OFFSET = INITIAL_SEEK_OFFSET * 4
 
 class ButtonHandler:
   def __init__(self, host, port, player_id):
@@ -11,25 +15,32 @@ class ButtonHandler:
     self._port = port
     self._player_id = player_id
     self._button_is_held = False
+    self._seek_offset = INITIAL_SEEK_OFFSET
 
   def play_pause(self, button):
     print("Button held: {}".format(self._button_is_held))
     if self._button_is_held:
       self._button_is_held = False
+      self._seek_offset = INITIAL_SEEK_OFFSET
       return
     print("play/pause")
     self._player.query('pause')
 
   def seek_forward(self):
     self._button_is_held = True
-    print("seeking+20")
-    self._player.seek('+20')
+    seek = '+{}'.format(min(self._seek_offset, MAX_SEEK_OFFSET))
+    print("seeking", seek)
+    self._player.seek(seek)
+    self._seek_offset *= 2
 
   def loop(self):
     server = Server(self._host, self._port)
     server.update()
-    print(server)
-    self._player=server.player(self._player_id)
+    try:
+      self._player=server.player(self._player_id)
+    except (KeyError) as e:
+      print(server, file=stderr)
+      raise Exception("Player {} not found".format(self._player_id)) from e
 
     button = Button(15, hold_repeat=True, hold_time=3)
     button.when_released = self.play_pause

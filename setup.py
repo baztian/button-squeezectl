@@ -20,6 +20,8 @@ setup(
   keywords = ['button', 'gpio', 'raspi', 'raspberry', 'lms', 'squeeze'],
   install_requires = [
           'gpiozero',
+           # required by lms but not marked as transitive dependency
+          'requests',
           'lms'
       ],
   entry_points = {

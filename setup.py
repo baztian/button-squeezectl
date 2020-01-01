@@ -20,9 +20,8 @@ setup(
   keywords = ['button', 'gpio', 'raspi', 'raspberry', 'lms', 'squeeze'],
   install_requires = [
           'gpiozero',
-           # required by lms but not marked as transitive dependency
-          'requests',
-          'lms'
+           # necessary unless a version newer than 1.1.0 of lms is available on pypi
+          'lms @ https://github.com/molobrakos/lms/archive/master.zip'
       ],
   entry_points = {
       'console_scripts': [

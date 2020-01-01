@@ -9,7 +9,7 @@ with open(path.join(this_directory, 'README.md'), encoding='utf-8') as f:
 setup(
   name = 'button-squeezectl',
   py_modules=['button_squeezectl'],
-  version = '0.0.0',
+  version = '0.0.1',
   license='Apache',
   description = 'Control Logitech Squeezebox using GPIO buttons',
   long_description=long_description,

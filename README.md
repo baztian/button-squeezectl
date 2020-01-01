@@ -7,8 +7,8 @@ Control Logitech Squeezebox using GPIO buttons.
     sudo apt install python3-venv
     python3 -m venv --system-site-packages ~/button-squeezectl
     . ~/button-squeezectl/bin/activate
-    pip install button-squeezectl
-    button-squeezectl host:port player_id
+    pip install rpi.gpio button-squeezectl
+    button-squeezectl host port player_id
 
 ## Develop
 

@@ -21,7 +21,7 @@ setup(
   install_requires = [
           'gpiozero',
            # necessary unless a version newer than 1.1.0 of lms is available on pypi
-          'lms @ https://github.com/molobrakos/lms/archive/master.zip'
+          'lms @ https://github.com/baztian/lms/archive/develop.zip'
       ],
   entry_points = {
       'console_scripts': [

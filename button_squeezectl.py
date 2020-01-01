@@ -45,11 +45,7 @@ class ButtonHandler:
     button = Button(15, hold_repeat=True, hold_time=3)
     button.when_released = self.play_pause
     button.when_held = self.seek_forward
-  #  p.seek('-10')
 
-  #  p.query('playlistcontrol', 'cmd:load', 'playlist_name:44-21-65-188-196')
-  #  p.query('playlist', 'name', '?')
-  #  p.query('playlist', 'playlistsinfo')
     signal.pause()
 
 def main():

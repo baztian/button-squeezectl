@@ -1,0 +1,6 @@
+*~
+.vscode/
+MANIFEST
+build/
+dist/
+*.egg-info/

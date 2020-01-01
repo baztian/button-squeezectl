@@ -10,14 +10,18 @@ class ButtonHandler:
     self._host = host
     self._port = port
     self._player_id = player_id
+    self._button_is_held = False
 
   def play_pause(self, button):
-    if button.is_held:
+    print("Button held: {}".format(self._button_is_held))
+    if self._button_is_held:
+      self._button_is_held = False
       return
     print("play/pause")
     self._player.query('pause')
 
   def seek_forward(self):
+    self._button_is_held = True
     print("seeking+20")
     self._player.seek('+20')
 

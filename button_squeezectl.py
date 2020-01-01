@@ -22,12 +22,12 @@ def loop(host, port, player_id):
 def main():
   import sys
   print(len(sys.argv))
-  if len(sys.argv) != 3:
+  if len(sys.argv) != 4:
     print("Usage: button-squeezectl lms_host port player_id", file=sys.stderr)
     print("Example: button-squeezectl music 9000 b8:27:eb:d0:cc:13", file=sys.stderr)
     sys.exit(1)
   else:
-    loop(*sys.argv[1:])
+    loop(sys.argv[1], int(sys.argv[2]), sys.argv[3])
 
 if __name__ == "__main__":
   main()

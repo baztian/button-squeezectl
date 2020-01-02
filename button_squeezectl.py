@@ -42,7 +42,7 @@ class ButtonHandler:
       print(server, file=stderr)
       raise Exception("Player {} not found".format(self._player_id)) from e
 
-    button = Button(15, hold_repeat=True, hold_time=3)
+    button = Button(23, hold_repeat=True, hold_time=3)
     button.when_released = self.play_pause
     button.when_held = self.seek_forward
 

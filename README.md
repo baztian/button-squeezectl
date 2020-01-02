@@ -12,7 +12,7 @@ Control Logitech Squeezebox using GPIO momentary buttons.
 
 ## Usage
 
-Currently it is hard coded to GPIO 18. A single press of the button will switch between play and pause. Holding the button will do a progressive fast forward: Holding it for at least 3 seconds will do a relative seek (fast forward) plus 15 seconds. Holding the button for another 3 seconds will skip again but double the seconds getting skipped. Holding it further will continue skipping and double until it has reached a skip amount of 60 seconds.
+Currently it is hard coded to GPIO 23. A single press of the button will switch between play and pause. Holding the button will do a progressive fast forward: Holding it for at least 3 seconds will do a relative seek (fast forward) plus 15 seconds. Holding the button for another 3 seconds will skip again but double the seconds getting skipped. Holding it further will continue skipping and double until it has reached a skip amount of 60 seconds.
 
 ## Develop
 
